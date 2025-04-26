@@ -16,7 +16,10 @@ import org.jetbrains.exposed.sql.Database
 
 
 import app.models.MediaFormulas
+import app.models.Protocols
+
 import app.routes.mediaFormulaRoutes
+import app.routes.protocolRoutes
 
 fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module).start(wait = true)
@@ -48,5 +51,6 @@ fun Application.module() {
         }
 
         mediaFormulaRoutes()
+        protocolRoutes()
     }
 }
