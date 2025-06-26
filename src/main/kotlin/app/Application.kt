@@ -35,7 +35,10 @@ fun Application.module() {
     )
 
     transaction(db) {
-        SchemaUtils.create(MediaFormulas)
+        SchemaUtils.create(
+            MediaFormulas, Ingredients, FormulaIngredients,
+            Protocols, ProtocolVersions, Steps
+        )
     }
    
 
@@ -49,8 +52,11 @@ fun Application.module() {
         get("/") {
             call.respond(mapOf("message" to "OpenPlantProtocols API is running 🌱"))
         }
-
+        
         mediaFormulaRoutes()
+        ingredientRoutes()
+        formulaIngredientRoutes()
         protocolRoutes()
+        protocolVersionRoutes()
     }
 }
