@@ -1,0 +1,333 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================
+   Theme Variables
+======================== */
+
+:root {
+  --color-bg: #f9fafb;
+  --color-text: #1a1a1a;
+  --color-muted: #777;
+  --color-border: #e0e0e0;
+  --color-nav-bg: #ffffff;
+  --color-accent: #639e3f;
+  --color-accent-hover: #1f3229;
+  --color-accent-blue: #38a6c7;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1a1a1a;
+  --color-text: #f0f0f0;
+  --color-muted: #aaa;
+  --color-border: #333;
+  --color-nav-bg: #222;
+  --color-accent: #639e3f;
+  --color-accent-hover: #4e7f32;
+  --color-accent-blue: #38a6c7;
+}
+
+/* ========================
+   Global Styles
+======================== */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ========================
+   Navbar Styles
+======================== */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background-color: var(--color-nav-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--color-accent);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: var(--color-accent);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* ========================
+   Landing Page
+======================== */
+
+.landing-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.landing-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.landing-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--color-accent);
+}
+
+.landing-brand img {
+  width: 32px;
+  height: 32px;
+}
+
+.headline {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+}
+
+.subhead {
+  max-width: 600px;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.coming-soon {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--color-muted);
+}
+
+.calc-outer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.calc-title {
+  font-size: 2rem;
+  color: var(--color-accent);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.volume-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.volume-row input {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.table-container {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns:
+    1.5fr /* PGR */
+    1fr /* MW */
+    1.5fr /* Desired Conc */
+    1fr /* Desired Unit */
+    1.5fr /* Stock Conc */
+    1fr /* Stock Unit */
+    2fr /* Result */
+    0.5fr /* Delete button */;
+  gap: 0.5rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+.table-header {
+  background-color: var(--color-nav-bg);
+  font-weight: bold;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table-row {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table-row input,
+.table-row select {
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.result-cell {
+  font-weight: 500;
+  color: var(--color-accent-blue);
+}
+
+.total-summary {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-accent-blue);
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.actions button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: red;
+}
+
+.actions button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+/* ========================
+   Footer
+======================== */
+
+.landing-footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  background-color: var(--color-nav-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.landing-footer a {
+  color: var(--color-accent-blue);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.landing-footer a:hover {
+  text-decoration: underline;
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .navbar,
+  .actions,
+  .preset-row {
+    display: none;
+  }
+
+  .calc-outer {
+    padding: 0;
+  }
+
+  .table-row,
+  .table-header {
+    font-size: 0.9rem;
+  }
+}
